@@ -1,3 +1,8 @@
+import { WaypointConstraintType } from '@fmgc/flightplanning/FlightPlanManager';
+import { SegmentType } from '@fmgc/flightplanning/FlightPlanSegment';
+import { NauticalMiles } from '@typings/types';
+import { AltitudeConstraint, SpeedConstraint } from '../lnav/legs';
+
 export enum FlapConf {
     CLEAN,
     CONF_1,
@@ -9,6 +14,28 @@ export enum FlapConf {
 export enum AccelFactorMode {
     CONSTANT_CAS,
     CONSTANT_MACH,
+}
+
+export enum VerticalWaypointType {
+    CRZ,
+    CLB,
+    DES,
+}
+
+export interface VerticalLeg {
+    constraintType: VerticalWaypointType;
+    length: NauticalMiles;
+    distanceFromRef: NauticalMiles;
+    altConstraint: AltitudeConstraint | undefined;
+    speedConstraint: SpeedConstraint | undefined;
+    altIgnored: boolean;
+    speedIgnored: boolean;
+    altConstraintDirectlyApplied: boolean;
+    speedConstraintDirectlyApplied: boolean;
+}
+
+export interface VerticalLegPrediction {
+    
 }
 
 export class Common {

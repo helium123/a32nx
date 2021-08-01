@@ -23,6 +23,7 @@ export class Predictions {
      * @param initialFuelWeight weight of fuel at the end of last step
      * @param headwindAtMidStepAlt headwind component (in knots) at initialAltitude + (stepSize / 2); tailwind is negative
      * @param isaDev ISA deviation (in celsius)
+     * @param tropoAltitude tropopause altitude (feet)
      */
     static altitudeStep(
         initialAltitude: number,
